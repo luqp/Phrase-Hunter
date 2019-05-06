@@ -1,5 +1,6 @@
 # Import your Game class
 from phrasehunter.game import Game
+from phrasehunter.canvas import Canvas 
 
 phrases = [
     "Game class",
@@ -9,7 +10,20 @@ phrases = [
     "displayed again"
 ]
 
-# Create your Dunder Main statement.
+
+def playing():
+    prompting_user = True
+
+    while prompting_user:
+        game = Game(phrases)
+        game.start_game()
+        answer = input("Play again? yes / [n]o: ")
+
+        if answer.lower() == 'n':
+            Canvas.end_message()
+            prompting_user = False
+
+
 if __name__ == "__main__":
-    game = Game(phrases)
-    game.start_game()
+    Canvas.show_banner()
+    playing()

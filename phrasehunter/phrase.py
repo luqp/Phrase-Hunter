@@ -11,7 +11,7 @@ class Phrase:
         print(' '.join(letters))
 
 
-    def check_character(self, char_guessed):
+    def exist_character(self, char_guessed):
         was_guessed = False
         for letter in self.characters:
             if letter.value == ' ':
