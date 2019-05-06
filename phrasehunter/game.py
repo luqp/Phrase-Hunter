@@ -25,7 +25,7 @@ class Game:
         while self.active:
             letter = Canvas.input_user()
             if self.has_exceptions(letter) or letter in keys_selected:
-                Canvas.show_elements(self.lives_player, self.active_phrase, " ")
+                Canvas.show_elements(self.lives_player, self.active_phrase)
                 continue
             
             keys_selected.append(letter)

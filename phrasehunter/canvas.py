@@ -36,22 +36,24 @@ class Canvas():
                 )
             print(f'{cls.HL_CYAN}  {cls.HL_BLUE}  {cls.NO_STYLES}' * numer_quart)
             print()
-            answer = input(f"Press {cls.COLOR_BLUE}[H]{cls.NO_STYLES} to continue... ")
+            answer = input(f"Insert {cls.COLOR_BLUE}[H]{cls.NO_STYLES} to continue... ")
             is_h = True if answer.lower() == 'h' else False
 
 
     @classmethod
-    def show_elements(cls, lives_player, phrase, user_input=None):
+    def show_elements(cls, lives_player, phrase, user_input="_"):
         cls.clear_screen()
         print(f"{cls.COLOR_GRAY}Guess the Phrase:")
         print(f"{cls.COLOR_BLUE}")
         phrase.display()
         print(f"{cls.NO_STYLES}")
-        print(f"{cls.COLOR_GRAY}Total lives:{cls.NO_STYLES} {lives_player}")
-        print(f"{cls.COLOR_RED}{cls.EMOJI_HEART} {cls.NO_STYLES}" * lives_player)
-        print()
-        if user_input:
-            print(f"{cls.COLOR_GRAY}Last input:{cls.NO_STYLES} {user_input}")
+        print(
+            f"{cls.COLOR_GRAY}Last input:{cls.NO_STYLES} {user_input}"
+            f"{cls.COLOR_GRAY} · Total lives:{cls.NO_STYLES} {lives_player}")
+        print(
+            " " * 15,
+            f"{cls.COLOR_RED}{cls.EMOJI_HEART}  {cls.NO_STYLES}" * lives_player)
+            
 
     @classmethod
     def input_user(cls):
@@ -62,15 +64,13 @@ class Canvas():
     def print_game_over(cls, positive_end):
         print()
         if positive_end:
-            print(f"{cls.COLOR_CYAN}Congratulations!!")
             print(
-                f"You guessed the Phrase{cls.NO_STYLES}"
-                f" {cls.EMOJI_START} You win {cls.EMOJI_START}")
+                f"{cls.COLOR_CYAN}Congratulations!!{cls.NO_STYLES} "
+                f"{cls.EMOJI_START} You win {cls.EMOJI_START}")
         else:
-            print(f"{cls.COLOR_RED}Oh no!!")
             print(
-                f"You run out of hearts{cls.NO_STYLES}"
-                f" {cls.EMOJI_BOMB} You loss {cls.EMOJI_BOMB}")
+                f"{cls.COLOR_RED}You stayed without hearts!!{cls.NO_STYLES} "
+                f"{cls.EMOJI_BOMB} You loss {cls.EMOJI_BOMB}")
         print()
 
     

@@ -1,10 +1,9 @@
-# Import your Game class
 from phrasehunter.game import Game
 from phrasehunter.canvas import Canvas 
 
 phrases = [
     "Game class",
-    "method calls",
+    "Calls the methods",
     "Phrase object",
     "punctuation or numbers",
     "displayed again"
