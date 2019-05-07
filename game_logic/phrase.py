@@ -17,7 +17,6 @@ class Phrase:
                 continue
             if letter.check_if_equal(char_guessed):
                 is_within = True
-
         return is_within
 
     def were_shown(self):
@@ -25,5 +24,4 @@ class Phrase:
         for letter in self.characters:
             if not letter.was_guessed:
                 shown = False
-
         return shown

@@ -19,15 +19,15 @@ def check_if_game_over(game):
         return
     if game.state == GameState.WON:
         Message.print_game_over(True)
-    if game.state == GameState.LOST:
+    elif game.state == GameState.LOST:
         Message.print_game_over(False)
-    game.match_over()
+    game.game_over()
 
 
 def playing():
     game = Game(phrases)
-    Message.show_banner()
     game.start_game()
+    last_input = "_"
     Message.show_elements(
         game.lives_player,
         get_phrase_value(game.active_phrase)
@@ -35,7 +35,11 @@ def playing():
     while game.state != GameState.TURN_OFF:
         character = Message.input_user()
         try:
-            game.check_user_guess(character)
+            was_bad = game.check_user_guess(character)
+            if was_bad == None:
+                character = last_input
+            else:
+                last_input = character
         except:
             Message.report_exceptions()
         Message.show_elements(
@@ -43,12 +47,16 @@ def playing():
             get_phrase_value(game.active_phrase),
             character
         )
+        if was_bad:
+            Message.notify_error()
         check_if_game_over(game)
 
 
 if __name__ == "__main__":
+    Message.show_banner()
     while True:
         playing()
         answer = Message.continue_playing()
         if answer.lower() == 'n':
             break
+    Message.end_message()
