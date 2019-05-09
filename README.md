@@ -1,8 +1,16 @@
 # Phrase Hunter
 In this project has a friendly interface where you can play guessing phrases.
 
+<p align="center">
+    <img src="imgs/Banner.jpg"/>
+</p>
+
 ## To use
 Only need to download the repository and run the main file `app.py`
+
+<p align="center">
+    <img src="imgs/playing.jpg" border-radius="10px"/>
+</p>
 
 ## Architecture
 The project separates the game logic of the UI, the following way:
