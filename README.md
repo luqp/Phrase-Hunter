@@ -1,4 +1,6 @@
 # Phrase Hunter
+This project is the Python version of [Game Show App](https://github.com/windyludev/Game-Show-App) project
+
 In this project has a friendly interface where you can play guessing phrases.
 
 <p align="center">
