@@ -9,7 +9,7 @@ In this project has a friendly interface where you can play guessing phrases.
 Only need to download the repository and run the main file `app.py`
 
 <p align="center">
-    <img src="imgs/playing.jpg" border-radius="10px"/>
+    <img src="imgs/playing.jpg"/>
 </p>
 
 ## Architecture
