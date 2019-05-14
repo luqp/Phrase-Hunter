@@ -1,8 +1,18 @@
 # Phrase Hunter
+This project is the Python version of [Game Show App](https://github.com/windyludev/Game-Show-App) project
+
 In this project has a friendly interface where you can play guessing phrases.
+
+<p align="center">
+    <img src="imgs/Banner.jpg"/>
+</p>
 
 ## To use
 Only need to download the repository and run the main file `app.py`
+
+<p align="center">
+    <img src="imgs/playing.jpg"/>
+</p>
 
 ## Architecture
 The project separates the game logic of the UI, the following way:
