@@ -5,7 +5,7 @@ class Character:
         if len(value) != 1:
             raise ValueError("The value must be a single string character")
         self.single_character = value
-        self.was_guessed = False if self.single_character != ' ' else True
+        self.was_guessed = self.single_character == ' '
 
     @property
     def get_value(self):

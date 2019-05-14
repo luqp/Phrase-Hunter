@@ -1,7 +1,7 @@
 import os
 
 
-class Message():
+class Printer():
     STYLE_END = "\x1b[0m"
     BLUE_SQUARE = "\x1b[0;44m" + "  "
     CYAN_SQUARE = "\x1b[1;30;46m" + "  "
@@ -29,20 +29,15 @@ class Message():
         return input("Insert a letter -> ")
 
     @classmethod
-    def notify_error(cls):
-        print()
-        print(cls.add_style(cls.COLOR_YELLOW, "You didn't hit"))
-
-    @classmethod
     def report_exceptions(cls):
         print("You must input only a single string character")
         input(cls.add_style(cls.COLOR_GRAY, "Press enter to continue..."))
 
     @classmethod
     def continue_playing(cls):
-        print("Would you like to continue playing?")
-        print(cls.add_style(cls.COLOR_GRAY, "Press enter to continue... or"))
-        print("Press", cls.add_style(cls.COLOR_CYAN, "[n] ", "to end the game:"))
+        print(cls.add_style(cls.COLOR_GRAY, "Would you like to continue playing?"))
+        print("- Press", cls.add_style(cls.COLOR_CYAN, "[enter] ", "to continue playing"))
+        print("- Press", cls.add_style(cls.COLOR_CYAN, "[n] ", "to end game:"))
         return input("> ")
 
     @classmethod
@@ -87,7 +82,7 @@ class Message():
         )
 
     @classmethod
-    def print_game_over(cls, positive_end):
+    def print_end_game(cls, positive_end):
         print()
         if positive_end:
             print(cls.add_style(

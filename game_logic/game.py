@@ -1,4 +1,5 @@
 import random
+import re
 
 from enum import Enum
 from .phrase import Phrase
@@ -26,27 +27,25 @@ class Game:
     def get_lives_number(self):
         return self.lives_player
 
-    def game_over(self):
-        self.state = GameState.TURN_OFF
-
     def start_game(self):
-        self.state = GameState.IN_PROGRESS
-        self.active_phrase = Phrase(random.choice(self.phrases))
-        self.keys_selected = []
+        if self.state == GameState.TURN_OFF:
+            self.keys_selected = []
+            self.active_phrase = Phrase(random.choice(self.phrases))
+            self.state = GameState.IN_PROGRESS
 
     def check_user_guess(self, user_input):
-        no_guessed = False
-        if user_input.isdigit() or len(user_input) > 1:
-            raise TypeError
+        show = False
         if user_input in self.keys_selected:
             return None
+        if re.match("^[a-zA-Z]$", user_input) == None or len(user_input) > 1:
+            raise TypeError
         self.keys_selected.append(user_input)
         is_contained = self.active_phrase.check_if_contains(user_input)
         if not is_contained:
             self.lives_player -= 1
-            no_guessed = True
+            show = True
         self.__update_state_game()
-        return no_guessed
+        return show
 
     def __update_state_game(self):
         if self.active_phrase.were_shown():
